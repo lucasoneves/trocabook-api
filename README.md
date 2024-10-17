@@ -2,7 +2,7 @@
 
 A documentação a seguir descreve a arquitetura inicial e a configuração da API para troca de livros. A API foi projetada usando Node.js, Express, Sequelize e SQLite, seguindo uma estrutura modular que pode ser reutilizada em outros projetos de APIs RESTful.
 
-**Estrutura do Projeto**
+### Estrutura do Projeto
 
 O projeto possui a seguinte organização de diretórios:
 
@@ -20,7 +20,7 @@ O projeto possui a seguinte organização de diretórios:
 
 7. `seeders/`: Diretório para os arquivos de seed, que podem ser usados para popular o banco de dados com dados iniciais, se necessário.
 
-**Configuração e Instalação**
+##Configuração e Instalação
 
 Para configurar o projeto, é necessário ter o Node.js instalado (versão 12 ou superior), além do npm ou yarn. Os passos para configuração são:
 
@@ -34,7 +34,7 @@ Para configurar o projeto, é necessário ter o Node.js instalado (versão 12 ou
 
 5. Iniciar o servidor em modo de desenvolvimento com o comando `npm run dev`. O servidor estará acessível em `http://localhost:3000`.
 
-**Descrição dos Diretórios**
+##Descrição dos Diretórios
 
 - `app.js`: Arquivo principal onde o Express é configurado, incluindo os middlewares e as rotas.
 - `config/config.json`: Configura o banco de dados para diferentes ambientes (neste caso, desenvolvimento com SQLite).
@@ -44,7 +44,7 @@ Para configurar o projeto, é necessário ter o Node.js instalado (versão 12 ou
 - `migrations/`: Utilizado para a criação e atualização das tabelas do banco de dados.
 - `seeders/`: Para popular o banco de dados com dados iniciais.
 
-**Scripts Disponíveis**
+##Scripts Disponíveis
 
 Existem scripts pré-definidos para facilitar o uso do projeto:
 
@@ -52,7 +52,7 @@ Existem scripts pré-definidos para facilitar o uso do projeto:
 - `npm run dev`: Inicia o servidor com o nodemon, reiniciando automaticamente quando há mudanças no código.
 - `npx sequelize-cli db:migrate`: Executa as migrações do banco de dados.
 
-**Tecnologias Utilizadas**
+##Tecnologias Utilizadas
 
 O projeto utiliza as seguintes tecnologias:
 - Node.js para o ambiente de execução.
