@@ -1,3 +1,5 @@
+## Sequelize API Starter
+
 A documentação a seguir descreve a arquitetura inicial e a configuração da API para troca de livros. A API foi projetada usando Node.js, Express, Sequelize e SQLite, seguindo uma estrutura modular que pode ser reutilizada em outros projetos de APIs RESTful.
 
 **Estrutura do Projeto**
