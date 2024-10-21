@@ -1,7 +1,8 @@
 {
   "development": {
     "dialect": "sqlite",
-    "storage": "./database.sqlite"
+    "storage": "./database.sqlite",
+     "migrationStoragePath": "src/migrations"
   },
   "test": {
     "username": "root",

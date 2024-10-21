@@ -13,7 +13,9 @@ db.sequelize.authenticate().then(() => {
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("API de troca de livros funcionando")
+  res.status(200).json({
+    message: "Trocabook api running"
+  })
 })
 
 app.listen(PORT, () => {
