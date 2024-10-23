@@ -1,4 +1,5 @@
 const express = require('express');
+const routes = require('./src/routes');
 const db = require('./src/models');
 
 const app = express();
@@ -12,11 +13,7 @@ db.sequelize.authenticate().then(() => {
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Trocabook api running"
-  })
-})
+routes(app);
 
 app.listen(PORT, () => {
   console.log(`API listening on port ${PORT}`);
