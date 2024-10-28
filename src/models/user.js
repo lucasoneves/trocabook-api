@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       // Associação muitos para muitos com Book
       User.belongsToMany(models.Book, {
         through: 'UserBooks',
-        foreignKey: 'userId',
+        foreignKey: 'user_id',
         as: 'books',
       });
     }
@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     cpf: DataTypes.STRING,
+    active: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'User',
