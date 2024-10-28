@@ -8,9 +8,10 @@ class Controller {
   async getAll(req, res) {
     try {
       const resultList = await this.serviceEntity.getAllRegisters();
+      console.log(resultList)
       return res.status(200).json(resultList)
     } catch (error) {
-      
+      console.error(error)
     }
   }
 
@@ -27,7 +28,7 @@ class Controller {
       return res.status(200).json({ message: `Updated successfully!`})
 
     } catch (error) {
-      
+      console.error(error)
     }
   }
 }

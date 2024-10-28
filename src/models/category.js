@@ -6,15 +6,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // Associação um para muitos com Book
       Category.hasMany(models.Book, {
-        foreignKey: 'categoryId',
+        foreignKey: 'category_id',
         as: 'books',
       });
     }
   }
 
   Category.init({
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
+    title: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Category',
