@@ -9,7 +9,7 @@ class Controller {
       console.log(resultList);
       return res.status(200).json(resultList);
     } catch (error) {
-      console.error(error);
+      return res.status(500).json({ error: error.message })
     }
   }
 
@@ -26,7 +26,7 @@ class Controller {
       return res.status(404).json({ message: "Data not created!" });
 
     } catch (error) {
-      console.error(error);
+      return res.status(500).json({ error: error.message })
     }
   }
 
@@ -36,7 +36,7 @@ class Controller {
       const resultList = await this.serviceEntity.getSingleRegister(id);
       return res.status(200).json(resultList);
     } catch (error) {
-      console.error(error);
+      return res.status(500).json({ error: error.message })
     }
   }
 
@@ -55,7 +55,7 @@ class Controller {
       }
       return res.status(200).json({ message: `Updated successfully!` });
     } catch (error) {
-      console.error(error);
+      return res.status(500).json({ error: error.message })
     }
   }
 
@@ -71,7 +71,7 @@ class Controller {
 
       return res.status(200).json({ message: "Deleted successfully!" });
     } catch (error) {
-      console.error(error);
+      return res.status(500).json({ error: error.message })
     }
   }
 }

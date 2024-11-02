@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = require('./src/routes');
-const db = require('./src/models');
+const db = require('./src/database/models');
 
 const app = express();
 const PORT = 8080;
