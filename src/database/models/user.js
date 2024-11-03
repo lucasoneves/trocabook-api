@@ -22,7 +22,12 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     tableName: 'users',
-    paranoid: true
+    paranoid: true,
+    defaultScope: {
+      where: {
+        active: true,
+      }
+    }
   });
 
   return User;
