@@ -37,8 +37,12 @@ class Services {
     return true
   }
 
-  async deleteRegister(updated, itemId) {
-    const deletedItem = await dataSource[this.model].delete(itemId);
+  async deleteRegister(itemId) {
+    const deletedItem = await dataSource[this.model].destroy({
+      where: {
+        id: itemId
+      }
+    });
 
     if (!deletedItem) {
       return false;
