@@ -13,6 +13,10 @@ class Services {
     return await dataSource[this.model].findAll();
   }
 
+  async getRegistersByScope(scope) {
+    return dataSource[this.model].scope(scope).findAll();
+  }
+
   async getSingleRegister(itemId) {
     const result = await dataSource[this.model].findOne({
       where: {
