@@ -15,9 +15,20 @@ module.exports = (sequelize, DataTypes) => {
 
   User.init({
     name: DataTypes.STRING,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: 'Email is invalid'
+        }
+      }
+    },
     cpf: DataTypes.STRING,
-    active: DataTypes.BOOLEAN
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    }
   }, {
     sequelize,
     modelName: 'User',
