@@ -1,20 +1,33 @@
 const Controller = require('./Controller.js');
-const UserServices = require('../services/UserServices.js');
+const UserBookService = require('../services/UserBookService.js');
 
-const userServices = new UserServices();
-class UserBooksController extends Controller {
+const userBookService = new UserBookService();
+
+class UserBookController extends Controller {
   constructor() {
-    super(userServices);
+    super(userBookService);
   }
 
-  async getAllBooks(req, res) {
+  async getAll(req, res) {
     try {
-      const usersList = await userServices.getUsersByScope();
-      return res.status(200).json(usersList);
+      const userBooks = await userBookService.getAllUserBooks();
+      return res.status(200).json(userBooks);
     } catch (error) {
-      return res.status(404).json({ error: error.message })
+      console.error("ERROR getAll Userbooks: ", error.message)
+      return res.status(500).json({ error: error.message });
+    }
+  }
+  
+  async addBook(req, res) {
+    const { user_id, book_id  } = req.body;
+    try {
+      const userBook = await userBookService.addBookToUser({ user_id: user_id, book_id: book_id});
+      return res.status(201).json({ message: "Added successfully"})
+    } catch (error) {
+      console.error(error);
+      return res.status(400).json({ error: error.message });
     }
   }
 }
 
-module.exports = UserBooksController;
+module.exports = UserBookController;

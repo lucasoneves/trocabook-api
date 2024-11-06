@@ -4,14 +4,11 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Book extends Model {
     static associate(models) {
-      // Associação muitos para muitos com User
-      Book.belongsToMany(models.User, {
-        through: 'UserBooks',
+      Book.hasMany(models.UserBooks, {
         foreignKey: 'book_id',
-        as: 'users',
+        as: 'userBooks',
       });
 
-      // Associação muitos para um com Category
       Book.belongsTo(models.Category, {
         foreignKey: 'category_id',
         as: 'category',
