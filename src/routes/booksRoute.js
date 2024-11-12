@@ -6,7 +6,7 @@ const bookController = new BookController();
 
 const router = Router();
 
-router.get("/books", (req, res) => bookController.getAll(req, res));
+router.get("/books", (req, res) => bookController.getBooks(req, res));
 router.get("/books/:id", (req, res) => bookController.getSingle(req, res));
 router.post('/books', (req, res) => bookController.createData(req, res));
 router.put('/books/:id', (req, res) => bookController.updateData(req, res));

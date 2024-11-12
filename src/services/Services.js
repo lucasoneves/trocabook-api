@@ -9,8 +9,8 @@ class Services {
     return await dataSource[this.model].create(data);
   }
 
-  async getAllRegisters() {
-    return await dataSource[this.model].findAll();
+  async getAllRegisters(where = {}) {
+    return await dataSource[this.model].findAll({ where: {...where}});
   }
 
   async getRegistersByScope(scope) {
