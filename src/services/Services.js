@@ -10,7 +10,7 @@ class Services {
   }
 
   async getAllRegisters(where = {}) {
-    return await dataSource[this.model].findAll({ where: {...where}});
+    return await dataSource[this.model].findAndCountAll({ where: {...where}});
   }
 
   async getRegistersByScope(scope) {
@@ -25,6 +25,14 @@ class Services {
     });
 
     return result;
+  }
+  
+  async getRegisterByName(registerName) {
+    return dataSource[this.model].findAll({
+      where: {
+        name: registerName
+      }
+    })
   }
 
   async updateRegister(updated, itemId) {
