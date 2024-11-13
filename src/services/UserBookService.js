@@ -11,12 +11,12 @@ class UserBookService extends Services {
       include: [
         {
           model: dataSource.User,
-          as: 'user', // O alias definido no modelo Book.js
+          as: 'user',
           attributes: ['id', 'name', 'email']
         },
         {
           model: dataSource.Book,
-          as: 'book', // O alias definido no modelo User.js
+          as: 'book',
           attributes: ['id', 'title', 'description']
         }
       ]

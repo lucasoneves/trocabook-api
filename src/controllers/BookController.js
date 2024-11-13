@@ -27,8 +27,6 @@ class BookController extends Controller {
       };
     }
     
-    console.log('Where clause:', where);
-
 
     try {
       const booksList = await bookServices.getAllRegisters(where);
