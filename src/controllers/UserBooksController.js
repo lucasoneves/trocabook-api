@@ -10,7 +10,7 @@ class UserBookController extends Controller {
 
   async getAll(req, res) {
     try {
-      const userBooks = await userBookService.getAllUserBooks();
+      const userBooks = await userBookService.getUsersByBooks();
       return res.status(200).json(userBooks);
     } catch (error) {
       console.error("ERROR getAll Userbooks: ", error.message)

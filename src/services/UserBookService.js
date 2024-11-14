@@ -12,14 +12,14 @@ class UserBookService extends Services {
         {
           model: dataSource.User,
           as: 'user',
-          attributes: ['id', 'name', 'email']
+          attributes: ['id', 'name']
         },
         {
           model: dataSource.Book,
           as: 'book',
           attributes: ['id', 'title', 'description']
         }
-      ]
+      ],
     });
   }
 
@@ -35,6 +35,22 @@ class UserBookService extends Services {
       user_id: data.user_id,
       book_id: data.book_id
     });
+  }
+
+  async getUsersByBooks() {
+    const users = await dataSource.User.findAll({
+      attributes: ['id', 'name'],
+      include: [
+        {
+          model: dataSource.Book,
+          as: 'books',
+          attributes: ['id', 'title', 'description'],
+          through: { attributes: [] } // Isso omite os atributos de UserBooks
+        }
+      ]
+    })
+
+    return users;
   }
 }
 
